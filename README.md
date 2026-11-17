@@ -1,3 +1,32 @@
+# ADST V3 (v3 C++ rewrite)
+
+A tool for counting antivirus detections. It first records the MD5 of every file in a sample folder;
+after the antivirus has processed the folder, it compares them again. A file that is gone counts as
+"deleted", a file whose content changed counts as "cleaned", and the detection rate is calculated.
+
+Written in C++17 using only the Win32 API, with no third-party dependencies; MD5 is computed with the
+system BCrypt library.
+
+## Build
+
+MinGW-w64 (statically linked; the resulting exe runs on its own):
+
+```bash
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+```
+
+You can also open this folder in Visual Studio (as a CMake project) and build it there. The output is
+`build/ADST.exe`.
+
+## Layout
+
+- `src/scanner.*`: scanning, hashing, comparison and report generation (independent of the UI)
+- `src/main.cpp`: Win32 user interface
+- `res/`: icon, manifest, version information
+
+
+
 # ADST V3（v3 C++重构版）
 
 杀毒软件检测数目统计工具：先记录样本文件夹中每个文件的 MD5，杀毒软件处理后再对比——
