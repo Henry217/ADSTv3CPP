@@ -1,0 +1,35 @@
+#include <windows.h>
+#include "../src/resource.h"
+
+#pragma code_page(65001)
+
+IDI_APP  ICON    "p.ico"
+IDR_AMST RCDATA  "AMST.exe"
+
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "app.manifest"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION    3,0,0,0
+ PRODUCTVERSION 3,0,0,0
+ FILEOS         VOS_NT_WINDOWS32
+ FILETYPE       VFT_APP
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName",      "henry217"
+            VALUE "FileDescription",  "杀毒软件检测数目统计工具"
+            VALUE "FileVersion",      "3.0.0.0"
+            VALUE "InternalName",     "ADST"
+            VALUE "LegalCopyright",   "Copyright (C) henry217 2021"
+            VALUE "OriginalFilename", "ADST.exe"
+            VALUE "ProductName",      "ADST V3"
+            VALUE "ProductVersion",   "v3 C++重构版"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0804, 1200
+    END
+END
